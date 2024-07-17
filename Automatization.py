@@ -12,8 +12,8 @@ import datetime
 
 # Función para enviar correo
 def enviar_correo(destinatario, asunto, mensaje):
-    remitente = 'pentitodante2@gmail.com'
-    password = 'owyj jodq lhnh xmgy'
+    remitente = ''        #Colocar gmail desde donde se envia el e-mail
+    password = ''         #Contraseña de aplicación
     msg = MIMEMultipart() #Creo variable tipo MIME
     msg['From'] = remitente
     msg['To'] = destinatario
