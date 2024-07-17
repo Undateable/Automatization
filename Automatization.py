@@ -48,7 +48,7 @@ def llenar_formulario(driver, datos):
     submit_button.click()
 
 # Abre el archivo Excel
-wb = xw.Book('Archivo 1.xlsx')
+wb = xw.Book('Base Seguimiento Observ Auditoría al_30042021 - copia.xlsx')
 sht = wb.sheets['Hoja1']
 estados = sht.range('J2:J' + str(sht.cells.last_cell.row)).value #Recorro el archivo en la fila J y lo guardo
 
@@ -71,9 +71,9 @@ for i, estado in enumerate(estados, start=2):
         }
         for key, value in datos.items():
             if isinstance(value, datetime.datetime):
-                datos[key] = value.strftime('%Y-%m-%d %H:%M:%S')
+                datos[key] = value.strftime('%d-%m-%Y %H:%M:%S')
             elif isinstance(value, datetime.date):
-                datos[key] = value.strftime('%Y-%m-%d')
+                datos[key] = value.strftime('%d-%m-%Y')
         llenar_formulario(driver, datos)
     elif estado == "Atrasado":
         destinatario = sht.range(f' I{i}').value.strip()
